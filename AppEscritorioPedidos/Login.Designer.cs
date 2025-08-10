@@ -43,6 +43,7 @@
             Contraseña.Name = "Contraseña";
             Contraseña.Size = new Size(267, 23);
             Contraseña.TabIndex = 1;
+            
             // 
             // IdUsuario
             // 

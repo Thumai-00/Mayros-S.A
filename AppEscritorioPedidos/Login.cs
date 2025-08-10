@@ -12,21 +12,21 @@ namespace AppEscritorioPedidos
     {
         public Ingresar_Usua _ingreso;
         public Recuperar_Usua _recuperar;
-        public Login( Ingresar_Usua ingreso ,Recuperar_Usua recuperar )
+        public Login(Ingresar_Usua ingreso, Recuperar_Usua recuperar)
         {
             InitializeComponent();
             Contraseña.UseSystemPasswordChar = true;
-            _ingreso=ingreso;
-            _recuperar=recuperar;
+            _ingreso = ingreso;
+            _recuperar = recuperar;
         }
 
 
 
 
-        private async void  BtonIngresar(object sender, EventArgs e)
+        private async void BtonIngresar(object sender, EventArgs e)
         {
             var id = IdUsuario.Text;
-            var Clave  = Contraseña.Text;
+            var Clave = Contraseña.Text;
 
             if (string.IsNullOrEmpty(id) && string.IsNullOrEmpty(Clave))
             {
@@ -40,9 +40,10 @@ namespace AppEscritorioPedidos
                 id = null;
                 Clave = null;
             }
-            else {
+            else
+            {
 
-                if (!await _ingreso.validarActivo(id_usuario)) 
+                if (!await _ingreso.validarActivo(id_usuario))
                 {
                     MessageBox.Show("ERROR! Su usuario se encuentra eliminado  \n Validar con Supervisor");
                     id = null;
@@ -57,14 +58,12 @@ namespace AppEscritorioPedidos
                     Menu_Principal v2 = new Menu_Principal();
                     v2.Show();
                 }
-                else { 
                 
-                }
-            
+
             }
 
 
-            
+
 
 
         }
@@ -100,7 +99,7 @@ namespace AppEscritorioPedidos
             // Evento cambiar
             btnCambiar.Click += async (s, e) =>
             {
-                    
+
 
                 if (!int.TryParse(txtUsuario.Text, out int usuario))
                 {
@@ -116,7 +115,7 @@ namespace AppEscritorioPedidos
                     txtUsuario.Text = null;
                     txtNueva.Text = null;
                     txtRepetir.Text = null;
-                    
+
                 }
 
                 await _recuperar.cambiasContraseña(usuario, txtRepetir.Text);
@@ -145,8 +144,6 @@ namespace AppEscritorioPedidos
             MostrarVentanaCambiarContrasena();
         }
 
-      
-
-        
+       
     }
 }

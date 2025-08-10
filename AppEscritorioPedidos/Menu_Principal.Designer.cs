@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_Principal));
-            pictureBox1 = new PictureBox();
+            Pbox_Pedido = new PictureBox();
             Pedidos = new Label();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
@@ -37,20 +37,21 @@
             label2 = new Label();
             pictureBox4 = new PictureBox();
             label3 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Pbox_Pedido).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // Pbox_Pedido
             // 
-            pictureBox1.Image = Properties.Resources.Pedidos;
-            pictureBox1.Location = new Point(187, 151);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(208, 171);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            Pbox_Pedido.Image = Properties.Resources.Pedidos;
+            Pbox_Pedido.Location = new Point(187, 151);
+            Pbox_Pedido.Name = "Pbox_Pedido";
+            Pbox_Pedido.Size = new Size(208, 171);
+            Pbox_Pedido.TabIndex = 0;
+            Pbox_Pedido.TabStop = false;
+            Pbox_Pedido.Click += pictureBox1_Pedidos;
             // 
             // Pedidos
             // 
@@ -70,6 +71,7 @@
             pictureBox2.Size = new Size(208, 171);
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Usuario;
             // 
             // pictureBox3
             // 
@@ -128,7 +130,7 @@
             Controls.Add(label1);
             Controls.Add(pictureBox2);
             Controls.Add(Pedidos);
-            Controls.Add(pictureBox1);
+            Controls.Add(Pbox_Pedido);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MaximumSize = new Size(1024, 768);
@@ -136,7 +138,7 @@
             Name = "Menu_Principal";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Menu Principal";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Pbox_Pedido).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -146,7 +148,7 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox Pbox_Pedido;
         private Label Pedidos;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;

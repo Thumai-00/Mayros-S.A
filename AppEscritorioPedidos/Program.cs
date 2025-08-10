@@ -33,6 +33,8 @@ namespace AppEscritorioPedidos
             services.AddScoped<Ingresar_Usua>();
             services.AddScoped<RecuContrasenaRepo>();
             services.AddScoped<Recuperar_Usua>();
+            services.AddScoped<ValidaMenuRepo>();
+            services.AddScoped<ValidacionMenu>();
             
 
             // Construir proveedor
