@@ -15,7 +15,7 @@ namespace AppEscritorioPedidos
         [STAThread]
         static void Main()
         {
-            // Leer configuración desde App.config
+            // Leer configuraciï¿½n desde App.config
 
 
             string cadena = ConfigurationManager.ConnectionStrings["Sql_conexion"].ConnectionString;
@@ -27,12 +27,13 @@ namespace AppEscritorioPedidos
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(cadena));
 
-            // Aquí puedes agregar más servicios (repositorios, controladores, etc.)
+            // Aquï¿½ puedes agregar mï¿½s servicios (repositorios, controladores, etc.)
             services.AddScoped<Usuario>();
             services.AddScoped<IngresarRepo>();
             services.AddScoped<Ingresar_Usua>();
             services.AddScoped<RecuContrasenaRepo>();
             services.AddScoped<Recuperar_Usua>();
+            services.AddScoped<GestionUsuarioRepo>();
             
 
             // Construir proveedor
