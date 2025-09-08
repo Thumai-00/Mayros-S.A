@@ -81,6 +81,7 @@
             pictureBox3.Size = new Size(208, 171);
             pictureBox3.TabIndex = 4;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Barridos;
             // 
             // label1
             // 
@@ -108,6 +109,7 @@
             pictureBox4.Size = new Size(208, 171);
             pictureBox4.TabIndex = 6;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Reportes;
             // 
             // label3
             // 

@@ -17,59 +17,39 @@ namespace Controlador
                 
         }
 
-        public async Task<bool> ValidaPedido( string usuario)
+        public async Task<bool> ValidaPedido( int usuario)
         {
-            if (!int.TryParse(usuario, out int Usuario)) {
-
-                return false;  
-                           
-            }
-
-            return await _validacion.validarPedido(Usuario);
+            
+            return await _validacion.validarPedido(usuario);
 
         
         
         }
-        public async Task<bool> ValidaUsuario(string usuario)
+        public async Task<bool> ValidaUsuario(int usuario)
         {
-            if (!int.TryParse(usuario, out int Usuario))
-            {
+            
 
-                return false;
-
-            }
-
-            return await _validacion.validarUsuarios(Usuario);
+            return await _validacion.validarUsuarios(usuario);
 
 
 
         }
 
-        public async Task<bool> ValidaBarrido(string usuario)
+        public async Task<bool> ValidaBarrido(int usuario)
         {
-            if (!int.TryParse(usuario, out int Usuario))
-            {
+            
 
-                return false;
-
-            }
-
-            return await _validacion.validarBarridos(Usuario);
+            return await _validacion.validarBarridos(usuario);
 
 
 
         }
 
-        public async Task<bool> ValidaReportes(string usuario)
+        public async Task<bool> ValidaReportes(int usuario)
         {
-            if (!int.TryParse(usuario, out int Usuario))
-            {
+         
 
-                return false;
-
-            }
-
-            return await _validacion.validarReportes(Usuario);
+            return await _validacion.validarReportes(usuario);
 
 
 

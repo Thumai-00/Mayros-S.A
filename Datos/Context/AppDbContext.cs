@@ -12,6 +12,17 @@ namespace Datos.Context
     {
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Tipos_Usuarios> Tip_Usuarios { get; set; }
+        public DbSet<Tienda> Tiendas { get; set; }
+        public DbSet<Compania_Envios> Comp_Envios { get; set; }
+        public DbSet<Estado_Envio> Estado_Envios { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
+
+
+
+
+
+
+
 
 
         public AppDbContext(DbContextOptions<AppDbContext> options)

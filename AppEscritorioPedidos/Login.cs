@@ -25,20 +25,24 @@ namespace AppEscritorioPedidos
 
         private async void BtonIngresar(object sender, EventArgs e)
         {
-            var id = IdUsuario.Text;
-            var Clave = Contraseña.Text;
+            
 
-            if (string.IsNullOrEmpty(id) && string.IsNullOrEmpty(Clave))
+            if (string.IsNullOrEmpty(IdUsuario.Text) && string.IsNullOrEmpty(Contraseña.Text))
             {
                 MessageBox.Show("ADVERTENCIA!! \n Debes llenar los campos  ");
-
+                IdUsuario.Clear();
+                Contraseña.Clear();
+                IdUsuario.Focus();
+                return;
             }
 
-            if (!int.TryParse(id, out int id_usuario))
+            if (!int.TryParse(IdUsuario.Text, out int id_usuario))
             {
                 MessageBox.Show("ERROR! Su usuario debe tener solo numero");
-                id = null;
-                Clave = null;
+                IdUsuario.Clear();
+                Contraseña.Clear();
+                IdUsuario.Focus();
+                return;
             }
             else
             {
@@ -46,16 +50,18 @@ namespace AppEscritorioPedidos
                 if (!await _ingreso.validarActivo(id_usuario))
                 {
                     MessageBox.Show("ERROR! Su usuario se encuentra eliminado  \n Validar con Supervisor");
-                    id = null;
-                    Clave = null;
+                    IdUsuario.Clear();
+                    Contraseña.Clear();
+                    IdUsuario.Focus();
+                    return;
                 }
 
-                var usuario = _ingreso.Ingresar(id_usuario, Clave);
+                var usuario = await _ingreso.Ingresar(id_usuario, Contraseña.Text);
                 if (usuario != null)
                 {
                     MessageBox.Show("Bienvenido a la App de Pedidos ");
                     this.Hide();
-                    Menu_Principal v2 = new Menu_Principal();
+                    Menu_Principal v2 = new Menu_Principal(usuario);
                     v2.Show();
                 }
                 
