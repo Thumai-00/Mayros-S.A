@@ -10,6 +10,6 @@ namespace Entidades
     {
         public int id {  get; set; }
         public string Nombre_Tienda {  get; set; }  
-        public ICollection<List<>>
+        public ICollection<Pedido>Pedidos { get; set; }= new List<Pedido>(); 
     }
 }

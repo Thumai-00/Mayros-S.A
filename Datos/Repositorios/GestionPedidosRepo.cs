@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTOS;
 using Datos.Context;
 using Entidades;
+using Microsoft.EntityFrameworkCore;
+ 
 
 namespace Datos.Repositorios
 {
@@ -16,10 +19,22 @@ namespace Datos.Repositorios
             _db = db;
         }
 
-        public async Task<List<Pedido>> MostrarPedidos()
+        public async Task<List<PedidosDTO>> MostrarPedidos()
         {
-            return await _db.Pedidos.
-                Select(p => new { p.N_guia,p.Fecha_Creacion, })
+            return await _db.Pedidos
+                .Include(p => p.Tienda)
+                .Include(p => p.Compania_Envios)
+                .Include(p => p.Estado_Envio)
+                .Select(p => new PedidosDTO
+                {
+                    N_guia = p.N_guia,
+                    Nombre_Tienda = p.Tienda.Nombre_Tienda,
+                    Nombre_Compania = p.Compania_Envios.Nombre_Compania,
+                    Estado = p.Estado_Envio.Estado,
+                    Usuario = p.Usuario
+                })
+                .ToListAsync();
+
         }
 
     }
