@@ -65,8 +65,12 @@ namespace Datos.Repositorios
             _db.Pedidos.Add(pedido);
             _db.Pedidos.SaveChangesAsync();
             return true;
-    }
-        
+        }
+
+        public async Task pedido()
+        {
+            
+        }
 
 
     }
