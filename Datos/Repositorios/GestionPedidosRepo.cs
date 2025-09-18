@@ -7,7 +7,8 @@ using DTOS;
 using Datos.Context;
 using Entidades;
 using Microsoft.EntityFrameworkCore;
- 
+using System.ComponentModel;
+
 
 namespace Datos.Repositorios
 {
@@ -36,6 +37,37 @@ namespace Datos.Repositorios
                 .ToListAsync();
 
         }
+
+        public async Task<bool> ModiPedido(int id, int Estado, int Tienda, string UltiFecha)
+        {
+            var pedido = _db.Pedidos.FindAsync(id);
+            if (pedido == null)
+            {
+                pedido.Estado = Estado;
+                pedido.Tienda = Tienda;
+                pedido.Ultima_Mofi = UltiFecha;
+
+                return await _db.Pedidos.SaveChangesAsync;
+            }
+            else
+            {
+                return false;
+
+            }
+
+
+        }
+
+
+        public async Task<bool> IngresarPedido(Pedido pedido)
+        {
+
+            _db.Pedidos.Add(pedido);
+            _db.Pedidos.SaveChangesAsync();
+            return true;
+    }
+        
+
 
     }
 }

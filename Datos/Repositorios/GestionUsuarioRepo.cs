@@ -87,7 +87,7 @@ public class GestionUsuarioRepo
     public async Task<bool> CrearUsuario(Usuario usuario)
     {
         _db.Usuarios.Add(usuario);
-        _db.SaveChangesAsync();
+        _db.Usuarios.SaveChangesAsync();
         return true;
 
     }        
